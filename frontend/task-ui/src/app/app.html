@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>Mini Task Manager</h1>
+  <h2>Feature branch test 🚀</h2>
+  
+<p>Total tareas: {{ tasks.length }}</p>
+  <div class="task-form">
+    <input
+      type="text"
+      [(ngModel)]="newTaskTitle"
+      placeholder="Escribe una nueva tarea"
+    />
+    <button (click)="addTask()">Añadir</button>
+  </div>
+
+  <ul class="task-list">
+    <li *ngFor="let task of tasks">
+      <span [class.completed]="task.completed">
+        {{ task.title }}
+      </span>
+
+      <div class="actions">
+        <button (click)="toggleTask(task.id)">
+          {{ task.completed ? 'Desmarcar' : 'Completar' }}
+        </button>
+        <button (click)="deleteTask(task.id)">Borrar</button>
+        
+      </div>
+    </li>
+  </ul>
+</div>
